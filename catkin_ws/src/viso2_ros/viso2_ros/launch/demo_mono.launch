@@ -1,29 +1,14 @@
 <launch>
 
 	<!-- Arguments -->
-	<!--arg name="bagfile" default="test.bag"/--> <!-- Find it on http://srv.uib.es/public/viso2_ros/sample_bagfiles/  -->
-  <arg name="bagfile" default="/home/erickiemvp/viso/data/kitti_2011_09_30_drive_0020_synced.bag"/>
   <arg name="camera" default="/mono_forward"/>
   <param name="/use_sim_time" value="true"/>
-
-  <!-- Play the bagfile -->
-  <!--node pkg="rosbag" type="play" name="rosbag" args="clock $(arg bagfile)" /-->
-  
-  <!--
-  <node pkg="rosbag" type="play" name="rosbag" args="clock $(arg bagfile)">
-    <remap from="/kitti/camera_color_left/image_raw" to="$(arg camera)/left/image_raw"/>
-    <remap from="/kitti/camera_color_left/camera_info" to="$(arg camera)/left/camera_info"/>
-    <remap from="/kitti/camera_color_right/image_raw" to="$(arg camera)/right/image_raw"/>
-    <remap from="/kitti/camera_color_right/camera_info" to="$(arg camera)/right/camera_info"/>
-  </node>-->
-
-  <!-- Run the stereo image proc -->
-  <!--node ns="$(arg camera)" pkg="stereo_image_proc" type="stereo_image_proc" name="stereo_image_proc" /-->
 
   <!-- Viso2 -->
   <node pkg="viso2_ros" type="mono_odometer" name="mono_odometer" output="screen">
     <!--remap from="image" to="/kitti/camera_color_left/image_raw"/-->
     <remap from="image" to="/homohrt/camera_node/image/rect"/>
+    <!-- It's not specified, but you need to have a topic name "/homohrt/camera_node/image/camera_info"-->
     <param name="base_link_frame_id" value="$(arg camera)"/>
   </node>
 
