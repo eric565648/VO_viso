@@ -1,0 +1,8 @@
+prefix=/home/erickiemvp/VO_viso/catkin_ws/install
+
+Name: viso2_ros
+Description: Description of viso2_ros
+Version: 0.0.1
+Cflags: -I/home/erickiemvp/VO_viso/catkin_ws/install/include
+Libs: -L/home/erickiemvp/VO_viso/catkin_ws/install/lib 
+Requires: 
