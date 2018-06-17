@@ -31,10 +31,10 @@ def mainpart(inputfilename, ouputfilename):
 			continue
 		
 		#translation part of a frame 
-		translation = np.array([[float(datas[4]), float(datas[5]), float(datas[6])]])
+		translation = np.array([[float(datas[3]), float(datas[4]), float(datas[5])]])
 		
 		#transfer euler angle to 
-		theta = np.array([float(datas[7]), float(datas[8]), float(datas[9])])
+		theta = np.array([float(datas[0]), float(datas[1]), float(datas[2])])
 		RM = eulerAnglesToRotationMatrix(theta)
 		matrix = np.concatenate((RM, translation.T), axis=1)
 

@@ -1,2 +1,8 @@
 *.bag
 *.txt
+*.gp
+*.eps
+*.png
+*.pdf
+catkin_ws/build
+catkin_ws/devel
